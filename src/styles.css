@@ -1,0 +1,27 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font: inherit;
+    overflow: hidden;
+}
+
+svg {
+    overflow: visible;
+}
+
+.panel {
+    position: absolute;
+    padding: 1em;
+    border: 1px solid lightgray;
+    background: white;
+    opacity: 0.8;
+    border-radius: 5px;
+}
+
+.container {
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
