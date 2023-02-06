@@ -25,3 +25,9 @@ svg {
     align-items: center;
     height: 100vh;
 }
+
+.legend {
+    display: grid;
+    grid-template-columns: 1em 1fr repeat(2, 4em);
+    gap: 1em;
+}

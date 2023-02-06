@@ -84,9 +84,12 @@ function App() {
         ref={svgRef}
       >
         <g>
+          {/* All the points */}
           {data.cellid.map((_, i) => (
             <Point i={i} unit={unit} />
           ))}
+
+          {/* Path for x and y axes */}
           <path
             d={`M${minX} ${maxY} L${minX} ${minY}  L${maxX} ${minY}`}
             stroke="black"
@@ -94,15 +97,7 @@ function App() {
             strokeLinejoin="round"
             fill="none"
           />
-          <path
-            d={`M${minX} ${maxY + unit} L${minX - unit / 2} ${maxY} L${
-              minX + unit / 2
-            } ${maxY} L${minX} ${maxY + unit}`}
-            stroke="black"
-            fill="black"
-            strokeWidth={unit / 2}
-            strokeLinejoin="round"
-          />
+          {/* Path for y axis arrowhead */}
           <path
             d={`M${maxX + unit} ${minY} L${maxX} ${minY - unit / 2} L${maxX} ${
               minY + unit / 2
@@ -112,6 +107,18 @@ function App() {
             strokeWidth={unit / 2}
             strokeLinejoin="round"
           />
+          {/* Path for x axis arrowhead */}
+          <path
+            d={`M${minX} ${maxY + unit} L${minX - unit / 2} ${maxY} L${
+              minX + unit / 2
+            } ${maxY} L${minX} ${maxY + unit}`}
+            stroke="black"
+            fill="black"
+            strokeWidth={unit / 2}
+            strokeLinejoin="round"
+          />
+
+          {/* Axis headers */}
           <g transform={`translate(${minX - unit * 10}, ${minY - unit * 5})`}>
             <text transform={`scale(${unit / 4}, ${-unit / 4})`} x="0" y="0">
               <tspan x="0">x={minX}</tspan>
@@ -140,13 +147,7 @@ function App() {
         }}
         onClick={resetZoom}
       >
-        <div
-          style={{
-            display: "grid",
-            gridTemplateColumns: "1em 1fr repeat(2, 4em)",
-            gap: "1em",
-          }}
-        >
+        <div className="legend">
           <span />
           <span>Type</span>
           <span>Count</span>
